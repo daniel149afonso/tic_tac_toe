@@ -11,7 +11,7 @@ const fav = [...fruits];
 fruits[0] = "orange";
 console.log("Fruit:", fruits[0]);
 //END Example
-export default function GameBoard(){
+export default function GameBoard({onTriggerActivePlayer}){
 	const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
 	function handleClick(rowIndex, colIndex){
@@ -20,6 +20,7 @@ export default function GameBoard(){
 			newGameBoard[rowIndex][colIndex] = "X";
 			return (newGameBoard);
 		});
+		onTriggerActivePlayer();
 	}
 	return (
 	

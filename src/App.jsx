@@ -3,8 +3,11 @@ import Player from "./components/Player.jsx";
 import GameBoard from "./components/GameBoard.jsx";
 
 function App() {
-	const [activePlayer, setactivePlayer] = useState("X");
+	const [activePlayer, setActivePlayer] = useState("X");
 
+	function handleACtivePlayer(){
+		setActivePlayer((symbol)=> symbol === "X" ? "O" : "X");
+	}
 	return (
 		<main>
 			<div id="game-container">
@@ -12,8 +15,9 @@ function App() {
 					<Player initialName={"Player 1"} symbol="X"/>
 					<Player initialName={"Player 2"} symbol="O"/>
 				</ol>
-				<GameBoard/>
+				<GameBoard onTriggerActivePlayer={handleACtivePlayer}/>
 			</div>
+			<p>{activePlayer}</p>
 		</main>
 	);
 }
