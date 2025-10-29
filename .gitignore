@@ -10,7 +10,7 @@
 *.userosscache
 *.sln.docstates
 *.env
-
+eslint.config.js
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
