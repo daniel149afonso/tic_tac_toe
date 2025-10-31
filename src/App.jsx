@@ -13,7 +13,7 @@ function App() {
 	// Function that switches the active player after a move is made
 	function handleActivePlayer(rowIndex, colIndex){
 		setActivePlayer(symbol => symbol === "X" ? "O" : "X");
-		
+		// Save the played turn and who played X or O
 		setGameTurns(prevTurns => {
 			let currentPlayer = "X";
 
