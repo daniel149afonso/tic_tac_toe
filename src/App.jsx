@@ -34,9 +34,9 @@ function App() {
 					<Player initialName={"Player 1"} symbol="X" activeSymbol={activePlayer === "X"}/>{/*return a boolean true or false is active or not*/}
 					<Player initialName={"Player 2"} symbol="O" activeSymbol={activePlayer === "O"}/>
 				</ol>
-				<GameBoard onTriggerActivePlayer={handleActivePlayer} activeSymbol={activePlayer}/>
+				<GameBoard onTriggerActivePlayer={handleActivePlayer} turns={gameTurns}/>
 			</div>
-			<Log/>
+			{/* <Log/> */}
 			<p>{activePlayer}</p>
 		</main>
 	);

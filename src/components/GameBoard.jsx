@@ -4,7 +4,16 @@ const initialGameBoard = [
 	[null, null, null],
 ];
 
-export default function GameBoard({onTriggerActivePlayer}){
+export default function GameBoard({onTriggerActivePlayer, turns}){
+	let gameBoard = initialGameBoard;
+	//to add comments
+	for (const turn of turns) {
+		const {square, player} = turn;
+		const {row, col} = square;
+
+		gameBoard[row][col] = player;
+	}
+
 	// const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
 	// function handleClick(rowIndex, colIndex){
@@ -25,7 +34,7 @@ export default function GameBoard({onTriggerActivePlayer}){
 			<ol>
 				{row.map((playerSymbol, colIndex)=>(
 					<li key={colIndex}>
-						<button onClick={onTriggerActivePlayer}>{playerSymbol}</button>
+						<button onClick={() => onTriggerActivePlayer(rowIndex, colIndex)}>{playerSymbol}</button>
 					</li>
 				))}
 			</ol>
