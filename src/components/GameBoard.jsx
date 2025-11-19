@@ -10,7 +10,6 @@ export default function GameBoard({onTriggerActivePlayer, turns}){
 	for (const turn of turns) {
 		const {square, player} = turn;
 		const {row, col} = square;
-
 		gameBoard[row][col] = player;
 	}
 
@@ -27,7 +26,6 @@ export default function GameBoard({onTriggerActivePlayer, turns}){
 
 
 	return (
-
 	<ol id="game-board">
 		{gameBoard.map((row, rowIndex) => (
 		<li key={rowIndex}>
