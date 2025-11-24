@@ -12,19 +12,6 @@ export default function GameBoard({onTriggerActivePlayer, turns}){
 		const {row, col} = square;
 		gameBoard[row][col] = player;
 	}
-
-	// const [gameBoard, setGameBoard] = useState(initialGameBoard);
-
-	// function handleClick(rowIndex, colIndex){
-	// 	setGameBoard((prevGameBoard) => {
-	// 		const newGameBoard = [...prevGameBoard.map(innerArray => [...innerArray])];
-	// 		newGameBoard[rowIndex][colIndex] = activeSymbol;
-	// 		return (newGameBoard);
-	// 	});
-	// 	onTriggerActivePlayer();
-	// }
-
-
 	return (
 	<ol id="game-board">
 		{gameBoard.map((row, rowIndex) => (
@@ -32,7 +19,9 @@ export default function GameBoard({onTriggerActivePlayer, turns}){
 			<ol>
 				{row.map((playerSymbol, colIndex)=>(
 					<li key={colIndex}>
-						<button onClick={() => onTriggerActivePlayer(rowIndex, colIndex)}>{playerSymbol}</button>
+						<button onClick={() => onTriggerActivePlayer(rowIndex, colIndex)}
+							disabled={playerSymbol !== null}>{playerSymbol}
+						</button>
 					</li>
 				))}
 			</ol>

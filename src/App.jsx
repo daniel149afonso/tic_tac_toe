@@ -31,12 +31,11 @@ function App() {
 		<main>
 			<div id="game-container">
 				<ol id="players" className="highlight-player">
-					<Player initialName={"Player 1"} symbol="X" activeSymbol={activePlayer === "X"}/>{/*return a boolean true or false is active or not*/}
-					<Player initialName={"Player 2"} symbol="O" activeSymbol={activePlayer === "O"}/>
+					<Player initialName={"Player 1"} symbol="X" activeSymbol={gameTurns.player === "X"}/>{/*return a boolean true or false is active or not*/}
+					<Player initialName={"Player 2"} symbol="O" activeSymbol={gameTurns.player === "O"}/>
 				</ol>
 				<GameBoard onTriggerActivePlayer={handleActivePlayer} turns={gameTurns}/>
 			</div>
-			ici
 			<Log turns={gameTurns}/>
 		</main>
 	);
