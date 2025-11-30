@@ -4,23 +4,24 @@ import GameBoard from "./components/GameBoard.jsx";
 import Log from "./components/Log.jsx";
 import { WINNING_COMBINATIONS } from "./winning_list_items.js";
 
+function deriveActivePlayer(gameTurns){
+	let currentPlayer = "X";
+	if (gameTurns.length > 0 && gameTurns[0].player === "X")
+		currentPlayer = "O";
+	return currentPlayer;
+}
+
 function App() {
 
 	// State that stores all the turns that have been played so far
 	const [gameTurns, setGameTurns] = useState([]);
+	const activePlayer = deriveActivePlayer(gameTurns);
 	
-	// State that keeps track of which player's turn it currently is: "X" or "O"
-	const [activePlayer, setActivePlayer] = useState("X");
-
 	// Function that switches the active player after a move is made
 	function handleActivePlayer(rowIndex, colIndex) {
-		setActivePlayer(symbol => symbol === "X" ? "O" : "X");
 		// Save the played turn and who played X or O
 		setGameTurns(prevTurns => {
-			let currentPlayer = "X";
-
-			if (prevTurns.length > 0 && prevTurns[0].player === "X")
-				currentPlayer = "O";
+			const currentPlayer = deriveActivePlayer(prevTurns);
 			const updatedTurns = [
 				{square: {row: rowIndex, col: colIndex}, player: currentPlayer},
 				...prevTurns,

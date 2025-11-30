@@ -6,12 +6,16 @@ const initialGameBoard = [
 
 export default function GameBoard({onTriggerActivePlayer, turns}){
 	let gameBoard = initialGameBoard;
-	//to add comments
+	//Remplit le tableau avec l'historique des joueurs
 	for (const turn of turns) {
-		const {square, player} = turn;
-		const {row, col} = square;
-		gameBoard[row][col] = player;
-	}
+	// turn = un coup dans la liste
+	const square = turn.square; // ex: {row:0, col:1}
+	const player = turn.player; // ex: "X"
+	const row = square.row; // 0
+	const col = square.col; // 1
+	gameBoard[row][col] = player;
+}
+
 	return (
 	<ol id="game-board">
 		{gameBoard.map((row, rowIndex) => (
