@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Player from "./components/Player.jsx";
 import GameBoard from "./components/GameBoard.jsx";
+import GameOver from "./components/GameOver.jsx";
 import Log from "./components/Log.jsx";
 import { WINNING_COMBINATIONS } from "./winning_combinations.js";
 
@@ -33,13 +34,16 @@ function App() {
 
 	let winner = null;
 	for (const combination of WINNING_COMBINATIONS) {
-		const firstSquareSymbol = gameBoard[combination[0].row][combination[0].col];
-		const secondSquareSymbol = gameBoard[combination[1].row][combination[1].col];
-		const thirdSquareSymbol = gameBoard[combination[2].row][combination[2].col];
+		const firstSquareSymbol = gameBoard[combination[0].row][combination[0].column];
+		const secondSquareSymbol = gameBoard[combination[1].row][combination[1].column];
+		const thirdSquareSymbol = gameBoard[combination[2].row][combination[2].column];
 
 		if (firstSquareSymbol && firstSquareSymbol === secondSquareSymbol && firstSquareSymbol === thirdSquareSymbol)
+		{
 			winner = firstSquareSymbol;
-	}
+			console.log("Congratulations");
+		}
+	}	
 
 	// Function that switches the active player after a move is made
 	function handleActivePlayer(rowIndex, colIndex) {
@@ -56,6 +60,7 @@ function App() {
 	return (
 		<main>
 			<div id="game-container">
+				{/* <GameOver/> */}
 				<ol id="players" className="highlight-player">
 					<Player initialName={"Player 1"} symbol="X" activeSymbol={gameTurns.player === "X"}/>{/*return a boolean true or false is active or not*/}
 					<Player initialName={"Player 2"} symbol="O" activeSymbol={gameTurns.player === "O"}/>
