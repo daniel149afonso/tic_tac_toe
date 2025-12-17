@@ -41,7 +41,11 @@ function App() {
 		if (firstSquareSymbol && firstSquareSymbol === secondSquareSymbol && firstSquareSymbol === thirdSquareSymbol)
 		{
 			winner = firstSquareSymbol;
-			console.log("Congratulations");
+			//DEBUG WINNING COMBINATION
+			// console.log("Winner combination: "+ [combination[0].row][combination[0].column]);
+			// console.log("Winner combination: "+ [combination[1].row][combination[1].column]);
+			// console.log("Winner combination: "+ [combination[2].row][combination[2].column]);
+			// console.log("Winner: "+ firstSquareSymbol);
 		}
 	}	
 
@@ -60,7 +64,7 @@ function App() {
 	return (
 		<main>
 			<div id="game-container">
-				{/* <GameOver/> */}
+				<GameOver winner={winner} gameBoard={gameBoard}/>
 				<ol id="players" className="highlight-player">
 					<Player initialName={"Player 1"} symbol="X" activeSymbol={gameTurns.player === "X"}/>{/*return a boolean true or false is active or not*/}
 					<Player initialName={"Player 2"} symbol="O" activeSymbol={gameTurns.player === "O"}/>
