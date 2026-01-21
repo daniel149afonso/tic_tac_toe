@@ -5,12 +5,13 @@ import GameOver from "./components/GameOver.jsx";
 import Log from "./components/Log.jsx";
 import { WINNING_COMBINATIONS } from "./winning_combinations.js";
 
+//The board array empty
 const initialGameBoard = [
 	[null, null, null],
 	[null, null, null],
 	[null, null, null],
 ];
-
+//Find the active player
 function deriveActivePlayer(gameTurns){
 	let currentPlayer = "X";
 	if (gameTurns.length > 0 && gameTurns[0].player === "X")
@@ -20,10 +21,12 @@ function deriveActivePlayer(gameTurns){
 
 function App() {
 	// State that stores all the turns that have been played so far
+	const [players, setPlayers] = useState({X: "Player 1", O: "Player 2"});
 	const [gameTurns, setGameTurns] = useState([]);
 	const activePlayer = deriveActivePlayer(gameTurns);
 
-	let gameBoard = initialGameBoard;
+	//Deep copy of the array gameBoard and initial are separated array
+	let gameBoard = initialGameBoard.map(row => [...row]);
 	//Fill the array with the player historic
 	for (const turn of gameTurns) {
 		// turn = un coup dans la liste
@@ -48,7 +51,10 @@ function App() {
 			// console.log("Winner: "+ firstSquareSymbol);
 		}
 	}	
-
+	
+	//Check boolean if the game is a draw return true if the condition is true
+	const hasDraw = gameTurns.length === 9 && !winner;
+	
 	// Function that switches the active player after a move is made
 	function handleActivePlayer(rowIndex, colIndex) {
 		// Save the played turn and who played X or O
@@ -61,15 +67,18 @@ function App() {
 			return (updatedTurns);
 		});
 	}
+	//Reset the array turns and start a new game
+	function resetGame(){
+		setGameTurns([]);
+	}
 	return (
 		<main>
 			<div id="game-container">
-				<GameOver winner={winner} gameBoard={gameBoard}/>
 				<ol id="players" className="highlight-player">
-					<Player initialName={"Player 1"} symbol="X" activeSymbol={gameTurns.player === "X"}/>{/*return a boolean true or false is active or not*/}
-					<Player initialName={"Player 2"} symbol="O" activeSymbol={gameTurns.player === "O"}/>
+					<Player initialName={"Player 1"} symbol="X" activeSymbol={activePlayer === "X"} setPlayers = {setPlayers} players={players}/>{/*return a boolean true or false is active or not*/}
+					<Player initialName={"Player 2"} symbol="O" activeSymbol={activePlayer === "O"} setPlayers = {setPlayers} players={players}/>
 				</ol>
-				{winner && <p>You win {winner}!</p>}
+				{(winner || hasDraw) && <GameOver winner = {winner} resetGame = {resetGame} players={players}/>}
 				<GameBoard onTriggerActivePlayer={handleActivePlayer} board={gameBoard}/>
 			</div>
 			<Log turns={gameTurns}/>

@@ -1,13 +1,15 @@
-export default function GameOver({winner, gameBoard}){
-	let boardFilled = false;
+export default function GameOver({winner, resetGame, players}){
+	
+	console.log(players[winner]);
 	let gameOver=
 		<div id="game-over">
-			<p>Game Over</p>
-			<button>Restart</button>
+			{winner ? <p>Game Over</p> : <p>It's a draw</p>}
+			{winner && <p>You win {players[winner]}</p>}
+			<button onClick={resetGame}>Restart</button>
 		</div>;
 	return (
 		<>
-			{winner && gameOver}
+			{gameOver}
 		</>	
 	);
 }
