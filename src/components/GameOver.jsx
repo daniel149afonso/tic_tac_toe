@@ -4,7 +4,7 @@ export default function GameOver({winner, resetGame, players}){
 	let gameOver=
 		<div id="game-over">
 			{winner ? <p>Game Over</p> : <p>It's a draw</p>}
-			{winner && <p>You win {players[winner]}</p>}
+			{winner && <p>{players[winner]} won</p>}
 			<button onClick={resetGame}>Restart</button>
 		</div>;
 	return (
