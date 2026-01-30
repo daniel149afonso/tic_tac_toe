@@ -24,8 +24,7 @@ function deriveActivePlayer(gameTurns){
 
 //Determines the winner
 function deriveWinner(gameBoard){
-
-	let winner = null;
+	let winner;
 	for (const combination of WINNING_COMBINATIONS) {
 		const firstSquareSymbol = gameBoard[combination[0].row][combination[0].column];
 		const secondSquareSymbol = gameBoard[combination[1].row][combination[1].column];
@@ -53,7 +52,7 @@ function App() {
 		gameBoard[row][col] = player;
 	}
 
-	let winner = deriveWinner();
+	let winner = deriveWinner(gameBoard);
 	
 	//Check boolean if the game is a draw return true if the condition is true
 	const hasDraw = gameTurns.length === 9 && !winner;
