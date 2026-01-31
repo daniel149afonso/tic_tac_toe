@@ -3,6 +3,8 @@
 This project is a **Tic Tac Toe (Morpion)** game built with **React**.  
 It is a learning project created to better understand how React works and how to structure a small application.
 
+<img width="909" height="781" alt="Capture d’écran 2026-01-31 à 12 39 57" src="https://github.com/user-attachments/assets/b11013f0-eb5c-4530-8e9a-ed36a324ecc3" />
+
 ---
 
 ## 🎯 Project Purpose
