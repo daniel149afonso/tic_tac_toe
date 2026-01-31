@@ -1,7 +1,7 @@
 # 🎮 Tic Tac Toe – React
 
-This project is a **Tic Tac Toe (Morpion)** game built with **React**.  
-It is a learning project created to better understand how React works and how to structure a small application.
+This project is a Tic Tac Toe (Morpion) game built with React.
+It offers a smooth and responsive two-player experience with real-time updates, game state tracking, and instant feedback.
 
 <img width="909" height="781" alt="Capture d’écran 2026-01-31 à 12 39 57" src="https://github.com/user-attachments/assets/b11013f0-eb5c-4530-8e9a-ed36a324ecc3" />
 
@@ -67,7 +67,34 @@ This project helps understand:
 - 🔗 How data flows from parent components to child components
 
 ---
+## ⚙️ Requirements
 
+Before running the project, make sure you have:
+- Node.js (version 16 or higher)
+- npm (comes with Node.js)
+- A modern web browser
+The project uses **Vite**, which is installed automatically when running `npm install`.
+---
+
+## 🚀 How to Use the Project
+
+Follow these steps to run the project locally:
+
+1. Install the dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   
+3. Open your browser and visit:
+   ```arduino
+    http://localhost:5173
+    ```
+
+---
 ## ✅ Conclusion
 
 This project is meant for **learning and experimentation**.  
