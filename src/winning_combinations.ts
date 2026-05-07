@@ -1,4 +1,7 @@
-export const WINNING_COMBINATIONS = [
+type WinningSquare = { row: number; column: number };
+type WinningCombination = [WinningSquare, WinningSquare, WinningSquare];
+
+export const WINNING_COMBINATIONS: WinningCombination[] = [
   [
     { row: 0, column: 0 },
     { row: 0, column: 1 },
