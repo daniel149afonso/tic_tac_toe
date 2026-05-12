@@ -52,8 +52,8 @@ React automatically updates the interface based on the new state.
 ## 🛠️ Technologies Used
 
 - ⚛️ React
-- 🟨 JavaScript
-- 🧾 JSX
+- 🟦 TypeScript
+- 🧾 TSX
 - 🎨 Basic CSS
 
 ---
